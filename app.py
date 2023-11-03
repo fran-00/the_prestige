@@ -1,6 +1,7 @@
-from PIL import Image
 import os
 import re
+
+from PIL import Image
 
 
 def resize_image(path):

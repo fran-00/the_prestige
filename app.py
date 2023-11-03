@@ -27,7 +27,9 @@ def resize_image(path):
 
 
 class ImageProcessor:
-    def __init__(self, path):
+    def __init__(self, path, width, height):
+        self.width = width
+        self.height = height
         self.processing_errors_counter = 0
         self.unknown_errors_counter = 0
         self.path = path
@@ -71,7 +73,7 @@ class ImageProcessor:
     def process_image(self, img):
         print(f"Resizing {self.path}...")
         width, height = img.size
-        max_width = 800 if width > height else 600
+        max_width = self.width if width > height else self.height
         max_height = max_width * height // width
         img.thumbnail((max_width, max_height))
         img.save(self.temp_path)
@@ -79,5 +81,6 @@ class ImageProcessor:
 
 if __name__ == "__main__":
     path = input("Copy the folder path here: ")
-    # resize_images(path)
-    ImageProcessor(path).resize_images()
+    width = int(input("Choose MAX WIDTH: "))
+    height = int(input("Chose MAX HEIGHT: "))
+    ImageProcessor(path, width, height).resize_images()

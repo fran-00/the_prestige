@@ -77,6 +77,6 @@ class ImageProcessor:
 
 
 if __name__ == "__main__":
-    path = "django-summernote"
+    path = input("Copy the folder path here: ")
     # resize_images(path)
     ImageProcessor(path).resize_images()

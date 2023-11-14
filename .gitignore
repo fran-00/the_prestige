@@ -1,4 +1,6 @@
 /venv
 /input_folder
+/media
+/media-serve
 /excluded
 *.code-workspace
